@@ -170,9 +170,10 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 
             {
                 ShowMatchsticksFunction();
-                //Console.WriteLine("There are {0} matches, choose a number in the range of 1 to 3 to take.", MatchsticksNumber);
-
-                player1 = Convert.ToInt32(Console.ReadLine());
+                enableLimitlessNumCheck=false;
+                dynamicNumCheck=3;
+                NumCheckFunction();
+                player1=numCheckOutput;
 
                 MatchsticksNumber = MatchsticksNumber - player1;
 
@@ -189,6 +190,7 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
                 {
 
                     computer = matchesTaken - player1;
+                    ShowMatchsticksFunction();
 
                     Console.WriteLine("Computer picks {0} matches", computer);
 
