@@ -197,16 +197,11 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
                     if (MatchsticksNumber <= 0)
 
                     {
-
                         Console.WriteLine("You Win");
-
                     }
-
                 }
-
             }
         }
-
         static void ShowMatchsticksFunction()
         //shows the number of matches in play
         {
@@ -229,12 +224,6 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
             NumCheckFunction();
             MatchsticksNumber = numCheckOutput;
             PlayerSelect();
-
-
-
-            //ShowMatchsticksFunction();
-
-
 
             Console.WriteLine("Press any key to end");
             Console.ReadKey(true);
