@@ -170,6 +170,7 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 
             {
                 ShowMatchsticksFunction();
+                Console.Write("Player1, choose a number from 1 to 3 to take: ");
                 enableLimitlessNumCheck=false;
                 dynamicNumCheck=3;
                 NumCheckFunction();
