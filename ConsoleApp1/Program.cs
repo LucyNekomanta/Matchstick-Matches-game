@@ -8,16 +8,20 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 {
     class Program
     {
-        static int MatchsticksNumber;
+        static int MatchsticksNumber,MaxDraw;
 
         static void Main(string[] args)
         {
             Console.Write("Instructions:{0}" +
-                "There are a Number of matches on an imaginary table.{0}" +
-                "Each player must take at least one , or a maximum of 3 matches per turn.{0}" +
-                "Whichever player takes the last stick looses the game.{0}" +
-                "Please enter the Number of Matchsticks used: ",
-                    Environment.NewLine);
+                "There are a maximum of 1000 matches on an imaginary table.{0}" +
+                "Each player must take at least one , or a maximum of 100 matches per turn.{0}" +
+                "Whichever player takes the last stick looses the game.{0}",
+                                    Environment.NewLine);
+                
+            Console.Write("Please enter the number of max matches to take: ");
+            MaxDraw=NumCheckFunction(100);
+            Console.Write("Please enter the number of max matchsticks on the table: ");
+
             MatchsticksNumber = NumCheckFunction(1000);
             PlayerSelect();
 
@@ -101,7 +105,7 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
                     Console.Write("Player2, choose a number from 1 to 3 to take: ");
                     //turnPlayer1=true;
     }
-                drawYourLastPatheticCard = NumCheckFunction(3);
+                drawYourLastPatheticCard = NumCheckFunction(MaxDraw);
 
                 MatchsticksNumber = MatchsticksNumber - drawYourLastPatheticCard;
 
@@ -124,9 +128,7 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
         static void AIgame(bool goFirst)
 
         {
-
-            int player1, computer;
-            int matchesTaken = 3 + 1;
+            int drawYourLastPatheticCard;
             bool turnPlayer1=goFirst;
 
             while (MatchsticksNumber > 0)
@@ -135,22 +137,28 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 
                 if(turnPlayer1)
                 { 
-                    Console.Write("Player1, choose a number from 1 to 3 to take: ");
+                    Console.Write("Player1, choose a number from 1 to "+MaxDraw+ "to take: ");
+                    drawYourLastPatheticCard=NumCheckFunction(MaxDraw);
+                    MatchsticksNumber = MatchsticksNumber - drawYourLastPatheticCard;
                 }
                 else
                 { 
-                computer = matchesTaken - player1;
-                    //Random rnd = new Random();
-                    //int rndValue = rnd.Next(1, 4);
-
-                    Console.WriteLine("Computer picks {0} matches", computer);
-
-                    MatchsticksNumber = MatchsticksNumber - computer;
+                    int computerDraw;
+                    int bestPlay=MatchsticksNumber%(MaxDraw+1);
+                    if(bestPlay==0)
+                    { 
+                    Random rnd = new Random();
+                    computerDraw = rnd.Next(1,(MaxDraw+1));
+                    }
+                    else
+                    {
+                        computerDraw=bestPlay;
+                        MatchsticksNumber=MatchsticksNumber-computerDraw;
+                        Console.WriteLine("Computer picks {0} matches", computerDraw);
+                    }
+                    
                 }
                 
-                player1=NumCheckFunction(3);
-                
-                MatchsticksNumber = MatchsticksNumber - player1;
 
                 if (MatchsticksNumber <= 0)
 
@@ -161,7 +169,7 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
                     }
                     else
                     {
-                        Console.WriteLine("Player2 lost, Player1 wins the game");
+                        Console.WriteLine("computer lost, Player1 wins the game");
                     }
 
                 }
