@@ -1,7 +1,4 @@
-﻿//ES FEHLT NOCH WER ZUERST DARF IN HUMAN UND AI
-//KARL IST DOOF
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
