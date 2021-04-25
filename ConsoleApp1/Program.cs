@@ -168,7 +168,7 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
                 else
                 {
                     int computerDraw;
-                    int bestPlay=MatchsticksNumber%(MaxDraw+1);
+                    int bestPlay=(MatchsticksNumber-1)%(MaxDraw+1);
                     if(bestPlay==0)
                     {
                     Random rnd = new Random();
