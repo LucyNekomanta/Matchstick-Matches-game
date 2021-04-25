@@ -17,14 +17,26 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
                 "Each player must take at least one , or a maximum of 100 matches per turn.{0}" +
                 "Whichever player takes the last stick looses the game.{0}",
                                     Environment.NewLine);
-                
-            Console.Write("Please enter the number of max matches to take: ");
-            MaxDraw=NumCheckFunction(100);
+                            
             Console.Write("Please enter the number of max matchsticks on the table: ");
-
             MatchsticksNumber = NumCheckFunction(1000);
-            PlayerSelect();
 
+            Console.Write("Please enter the number of max matches to take: ");
+
+            bool testcheck=false;
+            while(!testcheck)
+            {
+                MaxDraw=NumCheckFunction(100);
+            if(MaxDraw< (MatchsticksNumber/4))
+                {
+                    testcheck=true;
+                    PlayerSelect();
+                }
+            else
+                {
+                    Console.WriteLine("You have to enter a number that is smaller than "+ MatchsticksNumber/4 +"!");
+                }
+            }
             Console.WriteLine("Press any key to end");
             Console.ReadKey(true);
         }
