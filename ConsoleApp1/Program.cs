@@ -17,18 +17,13 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 				"Each player must take at least one , or a maximum of 100 matches per turn.{0}" +
 				"Whichever player takes the last stick looses the game.{0}",
 									Environment.NewLine);
-							
 			Console.Write("Please enter the number of max matchsticks on the table: ");
 
 			bool testcheck=false;
-			Console.Write("Please enter the number of max matches to take{0}"+
-				"Be aware, it has to be at least 12: ",
-					Environment.NewLine);
-
 			while (!testcheck)
 			{
 				MatchsticksNumber = NumCheckFunction(1000);
-				if(MatchsticksNumber>12)
+				if(MatchsticksNumber>=12)
 				{
 					testcheck=true;
 				}
@@ -36,13 +31,15 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 				{
 					Console.WriteLine("Your Number is to low, you have to pick at least 12.");
 				}
-				testcheck=false;
 			}
-
+			testcheck=false;
+						Console.Write("Please enter the number of max matches to take{0}"+
+				"Be aware, it has to be maximum "+ MatchsticksNumber/4 +"!: ",
+					Environment.NewLine);
 			while(!testcheck)
 			{
 				MaxDraw=NumCheckFunction(100);
-			if(MaxDraw< (MatchsticksNumber/4))
+			if(MaxDraw <= (MatchsticksNumber/4))
 				{
 					testcheck=true;
 					PlayerSelect();
@@ -122,7 +119,6 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 			while (MatchsticksNumber > 0)
 			{
 				ShowMatchsticksFunction();
-				
 
 				if (turnPlayer1)
 	{
@@ -149,7 +145,6 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 	{
 						Console.WriteLine("Player2 lost, Player1 wins the game");
 	}
-					
 				}
 				turnPlayer1=!turnPlayer1;
 			}
@@ -165,17 +160,17 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 				ShowMatchsticksFunction();
 
 				if(turnPlayer1)
-				{ 
+				{
 					Console.Write("Player1, choose a number from 1 to "+ MaxDraw + "to take: ");
 					drawYourLastPatheticCard=NumCheckFunction(MaxDraw);
 					MatchsticksNumber = MatchsticksNumber - drawYourLastPatheticCard;
 				}
 				else
-				{ 
+				{
 					int computerDraw;
 					int bestPlay=MatchsticksNumber%(MaxDraw+1);
 					if(bestPlay==0)
-					{ 
+					{
 					Random rnd = new Random();
 					computerDraw = rnd.Next(1,(MaxDraw+1));
 					}
@@ -185,10 +180,7 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 						MatchsticksNumber=MatchsticksNumber-computerDraw;
 						Console.WriteLine("Computer picks {0} matches", computerDraw);
 					}
-					
 				}
-				
-
 				if (MatchsticksNumber <= 0)
 
 				{
