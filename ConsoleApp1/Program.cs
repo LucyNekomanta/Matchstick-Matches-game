@@ -14,7 +14,7 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 		{
 			Console.Write("Instructions:{0}" +
 				"There are at least 12 or a maximum of 1000 matches on an imaginary table.{0}" +
-				"Each player must take at least one , or a maximum of 100 matches per turn.{0}" +
+				"Each player must take at least 3, or a maximum of 100 matches per turn.{0}" +
 				"Whichever player takes the last stick looses the game.{0}",
 									Environment.NewLine);
 			Console.Write("Please enter the number of max matchsticks on the table: ");
@@ -34,7 +34,7 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 			}
 			testcheck=false;
 						Console.Write("Please enter the number of max matches to take{0}"+
-				"Be aware, only a maximum of "+ MatchsticksNumber/4 +" is allowed!: ",
+				"Be aware, only a minimum of 3 and a maximum of "+ MatchsticksNumber/4 +" is allowed!: ",
 					Environment.NewLine);
 			while(!testcheck)
 			{
