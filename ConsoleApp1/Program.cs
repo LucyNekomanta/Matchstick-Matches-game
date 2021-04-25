@@ -34,19 +34,19 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 			}
 			testcheck=false;
 						Console.Write("Please enter the number of max matches to take{0}"+
-				"Be aware, it has to be maximum "+ MatchsticksNumber/4 +"!: ",
+				"Be aware, only a maximum of "+ MatchsticksNumber/4 +" is allowed!: ",
 					Environment.NewLine);
 			while(!testcheck)
 			{
 				MaxDraw=NumCheckFunction(100);
-			if(MaxDraw <= (MatchsticksNumber/4))
+			if(MaxDraw >2 && MaxDraw <= (MatchsticksNumber/4))
 				{
 					testcheck=true;
 					PlayerSelect();
 				}
 			else
 				{
-					Console.WriteLine("You have to enter a number that is smaller than "+ MatchsticksNumber/4 +"!");
+					Console.WriteLine("You have to enter a number that is smaller than "+ MatchsticksNumber/4 +" or at least 3!");
 				}
 			}
 			testcheck=false;
