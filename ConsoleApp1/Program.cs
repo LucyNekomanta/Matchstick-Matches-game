@@ -159,6 +159,32 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 			{
 				ShowMatchsticksFunction();
 
+                if(turnPlayer1)
+                { 
+                    Console.Write("Player1, choose a number from 1 to "+ MaxDraw + " to take: ");
+                    drawYourLastPatheticCard=NumCheckFunction(MaxDraw);
+                    MatchsticksNumber = MatchsticksNumber - drawYourLastPatheticCard;
+                }
+                else
+                { 
+                    int computerDraw;
+                    int bestPlay=MatchsticksNumber%(MaxDraw+1);
+                    if(bestPlay==0)
+                    { 
+                    Random rnd = new Random();
+                    computerDraw = rnd.Next(1,(MaxDraw+1));
+                    }
+                    else
+                    {
+                        computerDraw=bestPlay;
+                        MatchsticksNumber=MatchsticksNumber-computerDraw;
+                        Console.WriteLine("Computer picks {0} matches", computerDraw);
+                    }
+                    
+                }
+                
+
+                if (MatchsticksNumber <= 0)
 				if(turnPlayer1)
 				{
 					Console.Write("Player1, choose a number from 1 to "+ MaxDraw + "to take: ");
