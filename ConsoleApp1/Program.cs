@@ -149,7 +149,7 @@ namespace _7_Aufgabe_7__NIMM_DREI__Dennis_Nicolai
 
                 if(turnPlayer1)
                 { 
-                    Console.Write("Player1, choose a number from 1 to "+ MaxDraw + "to take: ");
+                    Console.Write("Player1, choose a number from 1 to "+ MaxDraw + " to take: ");
                     drawYourLastPatheticCard=NumCheckFunction(MaxDraw);
                     MatchsticksNumber = MatchsticksNumber - drawYourLastPatheticCard;
                 }
